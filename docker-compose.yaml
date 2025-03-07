@@ -2,14 +2,8 @@ services:
   my_service:
     image: clockworklabs/spacetimedb:latest
     volumes:
-      - ./keys:/keys
-      - ./data:/data
+      - ./data:/stdb
+      - ./keys:/etc/spacetimedb
     ports:
-      - "3000:80"
-    command:
-      [
-        "start",
-        "--data-dir=/data",
-        "--jwt-pub-key-path=/keys/id_rsa.pub",
-        "--jwt-priv-key-path=/keys/id.rsa",
-      ]
+      - "80:3000"
+    command: ["start", "--data-dir=/stdb"]

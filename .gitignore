@@ -1,2 +1,5 @@
 keys/*
-data/*
+
+# everything in data except for the config
+/data/*
+!/data/config.toml
